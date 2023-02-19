@@ -19,19 +19,19 @@ namespace EmployeeManagement.Models
                 new Employee() { Id = 3, Name = "Sam", Department = Dept.IT, Email = "sam@gmail.com" }
             };
         }
-
+        //Create
         public Employee Add(Employee employee)
         {
             employee.Id = _employeeList.Max(e => e.Id) + 1;
             _employeeList.Add(employee);
             return employee;
         }
-
+        //Read - Get all employees
         public IEnumerable<Employee> GetAllEmployee()
         {
             return _employeeList;
         }
-
+        //Read - Get employee by Id
         public Employee GetEmployee(int Id) 
         {
             return _employeeList.FirstOrDefault(e => e.Id == Id);
