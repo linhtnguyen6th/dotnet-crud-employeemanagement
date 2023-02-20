@@ -19,22 +19,48 @@ namespace EmployeeManagement.Models
                 new Employee() { Id = 3, Name = "Sam", Department = Dept.IT, Email = "sam@gmail.com" }
             };
         }
-        //Create
+        //Create a new employee
         public Employee Add(Employee employee)
         {
             employee.Id = _employeeList.Max(e => e.Id) + 1;
             _employeeList.Add(employee);
             return employee;
         }
+        
+
         //Read - Get all employees
         public IEnumerable<Employee> GetAllEmployee()
         {
             return _employeeList;
         }
-        //Read - Get employee by Id
+        //Read - Get an employee by Id
         public Employee GetEmployee(int Id) 
         {
             return _employeeList.FirstOrDefault(e => e.Id == Id);
+        }
+
+        //Update an employee
+        public Employee Update(Employee employeeChanges)
+        {
+            Employee employee = _employeeList.FirstOrDefault(e => e.Id == employeeChanges.Id);
+            if (employee != null)
+            {
+                employee.Name = employeeChanges.Name;
+                employee.Department = employeeChanges.Department;
+                employee.Email = employeeChanges.Email; 
+            }
+            return employee;
+        }
+
+        //Delete an employee
+        public Employee Delete(int id)
+        {
+            Employee employee = _employeeList.FirstOrDefault(e => e.Id == id);
+            if(employee != null)
+            {
+                _employeeList.Remove(employee);
+            }
+            return employee;
         }
     }
 }
