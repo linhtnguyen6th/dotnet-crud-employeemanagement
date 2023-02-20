@@ -1,0 +1,9 @@
+﻿*.dll
+.vs/EmployeeManagement/FileContentIndex
+.vs/EmployeeManagement/v17
+.vs/ProjectEvaluation
+EmployeeManagement/bin
+*.g.cs
+EmployeeManagement/obj/Debug
+EmployeeManagement/obj
+*.v2
